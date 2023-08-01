@@ -1,5 +1,11 @@
-const Button = () => {
-  return <div>Button</div>;
+import Button from "react-bootstrap/Button";
+
+const ButtonComponent = () => {
+  return (
+    <div>
+      <Button variant="primary">Primary</Button>
+    </div>
+  );
 };
 
-export default Button;
+export default ButtonComponent;
