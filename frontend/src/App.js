@@ -9,6 +9,7 @@ function App() {
       <Title name="ToDo App" />
       <Example />
       <Example2 />
+      <Example3 isGoal={true} />
     </>
   );
 }
