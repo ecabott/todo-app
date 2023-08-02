@@ -6,13 +6,14 @@ import Example4 from "./components/examples/Example4";
 import Example5 from "./components/examples/Example5";
 import Example6 from "./components/examples/Example6";
 import Example7 from "./components/examples/Example7";
+import Example8 from "./components/examples/Example8";
 
 const cars = ["Bugatti", "BMW", "Porshe"];
 
 function App() {
   return (
     <>
-      <Title name="ToDo App" />
+      <Title name="React App" />
       <Example1 />
       <Example2 />
       <Example3 isGoal={true} />
@@ -20,6 +21,7 @@ function App() {
       <Example5 isGoal={false} />
       <Example6 />
       <Example7 />
+      <Example8 />
     </>
   );
 }
