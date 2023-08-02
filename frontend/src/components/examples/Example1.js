@@ -1,6 +1,6 @@
 function Example() {
   const shoot = () => {
-    alert("goal");
+    alert("Goal!");
   };
   return (
     <>

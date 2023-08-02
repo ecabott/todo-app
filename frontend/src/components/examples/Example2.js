@@ -4,7 +4,7 @@ function Example2() {
   };
   return (
     <>
-      <button onClick={() => shoot("Goal!")}>Take the shot 2!</button>
+      <button onClick={() => shoot("Goal!")}>Take the shot!</button>
     </>
   );
 }
