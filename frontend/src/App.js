@@ -17,6 +17,7 @@ function App() {
       <Example3 isGoal={true} />
       <Example4 cars={cars} />
       <Example5 isGoal={false} />
+      <Example6 />
     </>
   );
 }
