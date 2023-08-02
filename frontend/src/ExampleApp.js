@@ -10,10 +10,10 @@ import Example8 from "./components/examples/Example8";
 
 const cars = ["Bugatti", "BMW", "Porshe"];
 
-function App() {
+function ExampleApp() {
   return (
     <>
-      <Title name="React App" />
+      <Title name="Example App" />
       <Example1 />
       <Example2 />
       <Example3 isGoal={true} />
@@ -26,4 +26,4 @@ function App() {
   );
 }
 
-export default App;
+export default ExampleApp;
