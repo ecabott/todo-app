@@ -1,5 +1,5 @@
 import Title from "./components/Title";
-import Example from "./components/examples/Example";
+import Example1 from "./components/examples/Example1";
 import Example2 from "./components/examples/Example2";
 import Example3 from "./components/examples/Example3";
 import Example4 from "./components/examples/Example4";
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Title name="ToDo App" />
-      <Example />
+      <Example1 />
       <Example2 />
       <Example3 isGoal={true} />
       <Example4 cars={cars} />
