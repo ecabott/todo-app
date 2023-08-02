@@ -1,8 +1,8 @@
 function Car(props) {
-  return <li>I am a {props.brand}</li>;
+  return <li>A {props.brand}</li>;
 }
 function Example6() {
-  const cars = ["Bugatti", "Ford", "Porshe"];
+  const cars = ["Bugatti", "BMW", "Porshe"];
   return (
     <>
       <h1>Who lives in my garage</h1>
