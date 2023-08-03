@@ -7,9 +7,10 @@ const useAxiosFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = false;
     setLoading(true);
     const fetchData = async () => {
+      isMounted = true;
       try {
         const { data } = await axios(url);
         if (isMounted && data) {
