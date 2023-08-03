@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 
-function Timer() {
+function Example9() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setCount((count) => count + 1);
     }, 1000);
-  });
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return <h1>I've rendered {count} times!</h1>;
 }
 
-export default Timer;
+export default Example9;

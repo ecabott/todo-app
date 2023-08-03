@@ -7,7 +7,8 @@ import Example5 from "./components/examples/Example5";
 import Example6 from "./components/examples/Example6";
 import Example7 from "./components/examples/Example7";
 import Example8 from "./components/examples/Example8";
-import Timer from "./components/examples/Example9";
+import Example9 from "./components/examples/Example9";
+import Example10 from "./components/examples/Example10";
 
 const cars = ["Bugatti", "BMW", "Porshe"];
 
@@ -23,7 +24,8 @@ function ExampleApp() {
       <Example6 />
       <Example7 />
       <Example8 />
-      <Timer />
+      <Example9 />
+      <Example10 />
     </>
   );
 }
