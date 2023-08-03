@@ -1,8 +1,8 @@
 import React from "react";
-import useFetch from "./hooks/useFetch";
+import useAxiosFetch from "./hooks/useAxiosFetch";
 
 function CustomHook() {
-  const { data, loading, error } = useFetch(
+  const { data, loading, error } = useAxiosFetch(
     "http://localhost:5000/api/v1/todos"
   );
   if (loading) return <div>Loading...</div>;
