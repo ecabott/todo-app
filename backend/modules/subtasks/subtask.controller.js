@@ -1,21 +1,23 @@
-const Model = require("./subtask.model");
+const SubtaskModel = require("./subtask.model");
 
-class Controller {
-  add(payload) {
-    if (!payload) throw new Error("Must send some Payload");
-    return Model.create(payload);
-  }
+const create = (payload) => {
+  return SubtaskModel.create(payload);
+};
 
-  getById(id) {
-    return Model.findById(id);
-  }
+const list = () => {
+  return SubtaskModel.find();
+};
 
-  update(id, payload) {
-    return Model.findByIdAndUpdate(id, payload, { new: true });
-  }
+const getById = (id) => {
+  return SubtaskModel.findOne({ _id: id });
+};
 
-  remove(id) {
-    return Model.findByIdAndRemove(id);
-  }
-}
-module.exports = new Controller();
+const updateById = (id, payload) => {
+  return SubtaskModel.updateOne({ _id: id }, payload);
+};
+
+const remove = (id) => {
+  return SubtaskModel.deleteOne({ _id: id });
+};
+
+module.exports = { create, list, getById, updateById, remove };

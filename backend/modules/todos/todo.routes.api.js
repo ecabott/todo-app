@@ -1,41 +1,34 @@
 const router = require("express").Router();
-const Controller = require("./todo.controller");
+const todoController = require("./todo.controller");
 
-// create Todos
-router.post("/", async (q, r, n) => {
-  const payload = q.body || {};
-  Controller.add(payload)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Get
+router.get("/", async (req, res) => {
+  const results = await todoController.list();
+  res.json({ data: results });
 });
 
-// list Todos
-router.get("/", async (q, r, n) => {
-  Controller.list()
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Post
+router.post("/", async (req, res) => {
+  const todoResult = await todoController.create(req.body);
+  res.json({ data: todoResult });
 });
 
-// list todo by id
-router.get("/:id", async (q, r, n) => {
-  Controller.getById(q.params.id)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Get by id
+router.get("/:id", async (req, res) => {
+  const results = await todoController.getById(req.params.id);
+  res.json({ data: results });
 });
 
-// update status of Todo
-router.put("/:id", async (q, r, n) => {
-  const payload = q.body;
-  Controller.update(q.params.id, payload)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Update by id
+router.put("/:id", async (req, res) => {
+  const results = await todoController.updateById(req.params.id, req.body);
+  res.json({ data: results });
 });
 
-// delete Todo
-router.delete("/:id", async (q, r, n) => {
-  Controller.remove(q.params.id)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Delete by id
+router.delete("/:id", async (req, res) => {
+  const results = await todoController.remove(req.params.id);
+  res.json({ data: results });
 });
 
 module.exports = router;

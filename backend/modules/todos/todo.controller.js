@@ -1,48 +1,32 @@
-const Model = require("./todo.model");
-const SubtaskModel = require("../subtasks/subtask.model");
-const { update } = require("../subtasks/subtask.controller");
+const TodoModel = require("./todo.model");
 
-class Controller {
-  add(payload) {
-    if (!payload) throw new Error("Must send some Payload");
-    return Model.create(payload);
-  }
+const create = (payload) => {
+  return TodoModel.create(payload);
+};
 
-  async list() {
-    try {
-      const query = [];
-      query.push({
-        $lookup: {
-          from: "subtasks",
-          localField: "_id",
-          foreignField: "todo_id",
-          as: "subtasks",
-        },
-      });
-      return Model.aggregate(query);
-    } catch (err) {
-      return { message: err.message };
-    }
-  }
+const list = () => {
+  return TodoModel.aggregate([
+    {
+      $lookup: {
+        from: "subtasks",
+        localField: "_id",
+        foreignField: "todo",
+        as: "subtasks",
+      },
+    },
+  ]);
+};
 
-  getById(id) {
-    return Model.findById(id);
-  }
+const getById = (id) => {
+  return TodoModel.findOne({ _id: id });
+};
 
-  async update(id, status) {
-    const allSubtasks = await SubtaskModel.find({
-      todo_id: id,
-      status: "pending",
-    });
-    allSubtasks.map(async (d) => {
-      const resp = await update(d.id, status);
-      return resp;
-    });
-    return Model.findByIdAndUpdate(id, status, { new: true });
-  }
+const updateById = (id, payload) => {
+  return TodoModel.updateOne({ _id: id }, payload);
+};
 
-  remove(id) {
-    return Model.findByIdAndRemove(id);
-  }
-}
-module.exports = new Controller();
+const remove = (id) => {
+  return TodoModel.deleteOne({ _id: id });
+};
+
+module.exports = { create, list, getById, updateById, remove };

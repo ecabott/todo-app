@@ -1,34 +1,34 @@
 const router = require("express").Router();
-const Controller = require("./subtask.controller");
+const subtaskController = require("./subtask.controller");
 
-// create subtask
-router.post("/", async (q, r, n) => {
-  const payload = q.body || {};
-  Controller.add(payload)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Get
+router.get("/", async (req, res) => {
+  const results = await subtaskController.list();
+  res.json({ data: results });
 });
 
-// list subtask by id
-router.get("/:id", async (q, r, n) => {
-  Controller.getById(q.params.id)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Post
+router.post("/", async (req, res) => {
+  const todoResult = await subtaskController.create(req.body);
+  res.json({ data: todoResult });
 });
 
-// update subtask status
-router.put("/:id", async (q, r, n) => {
-  const payload = q.body;
-  Controller.update(q.params.id, payload)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Get by id
+router.get("/:id", async (req, res) => {
+  const results = await subtaskController.getById(req.params.id);
+  res.json({ data: results });
 });
 
-// delete subtask
-router.delete("/:id", async (q, r, n) => {
-  Controller.remove(q.params.id)
-    .then((d) => r.json(d))
-    .catch((e) => n(e));
+// Update by id
+router.put("/:id", async (req, res) => {
+  const results = await subtaskController.updateById(req.params.id, req.body);
+  res.json({ data: results });
+});
+
+// Delete by id
+router.delete("/:id", async (req, res) => {
+  const results = await subtaskController.remove(req.params.id);
+  res.json({ data: results });
 });
 
 module.exports = router;
