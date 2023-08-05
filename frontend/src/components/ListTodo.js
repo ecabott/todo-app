@@ -35,7 +35,6 @@ function ListTodo(props) {
                     />
                     <Button
                       variant="outline-danger"
-                      size="sm"
                       onClick={() => remove(`${API_SERVER}/todos`, todo?._id)}
                     >
                       Delete
