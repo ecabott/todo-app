@@ -1,3 +1,4 @@
+import Spinner from "react-bootstrap/Spinner";
 import ListTodo from "../components/ListTodo";
 import { useContext, useEffect } from "react";
 import { DataContext } from "../contexts";
@@ -10,7 +11,12 @@ function Todo() {
     fetchData(`${API_SERVER}/todos`);
   }, [fetchData]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div className="text-center">
+        <Spinner animation="border" />
+      </div>
+    );
   if (error) return <div>{error?.message}</div>;
 
   return <>{data && <ListTodo todos={data} />}</>;
