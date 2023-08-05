@@ -1,10 +1,15 @@
+import Button from "react-bootstrap/Button";
 import { Accordion } from "react-bootstrap";
 import MsgAlert from "./Alert";
 import ListSubtasks from "./ListSubtasks";
 import AddSubtask from "./AddSubtask";
 import { API_SERVER } from "../constants";
+import { useContext } from "react";
+import { DataContext } from "../contexts";
 
 function ListTodo(props) {
+  const { remove } = useContext(DataContext);
+
   const { todos } = props;
 
   return (
@@ -28,6 +33,13 @@ function ListTodo(props) {
                       placeholder="Eg: Submit Homework"
                       url={`${API_SERVER}/subtasks`}
                     />
+                    <Button
+                      variant="outline-danger"
+                      size="sm"
+                      onClick={() => remove(`${API_SERVER}/todos`, todo?._id)}
+                    >
+                      Delete
+                    </Button>
                   </Accordion.Body>
                 </Accordion.Item>
               );
