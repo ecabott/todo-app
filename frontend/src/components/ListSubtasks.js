@@ -16,10 +16,13 @@ function ListSubtasks(props) {
         <Form>
           {subtasks?.map((subtask) => {
             return (
-              <ButtonToolbar key={subtask?._id}>
+              <ButtonToolbar
+                className="justify-content-between"
+                key={subtask?._id}
+              >
                 <ButtonGroup className="me-2">
                   <Form.Check
-                    type="switch"
+                    type="checkbox"
                     checked={subtask?.status === "pending" ? false : true}
                     label={subtask?.title}
                     onChange={() =>
@@ -34,7 +37,8 @@ function ListSubtasks(props) {
                 </ButtonGroup>
                 <ButtonGroup className="mb-2">
                   <Button
-                    variant="danger"
+                    variant="outline-danger"
+                    size="sm"
                     onClick={() =>
                       remove(`${API_SERVER}/subtasks`, subtask?._id)
                     }

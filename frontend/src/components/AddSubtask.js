@@ -37,7 +37,7 @@ function AddItem(props) {
             })
           }
         />
-        <Button variant="outline-secondary" onClick={handleClick}>
+        <Button variant="outline-success" size="sm" onClick={handleClick}>
           Submit
         </Button>
       </InputGroup>
