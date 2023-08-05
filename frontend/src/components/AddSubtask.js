@@ -8,7 +8,7 @@ import MsgAlert from "./Alert";
 import { DataContext } from "../contexts";
 
 function AddItem(props) {
-  const { post, loading, error } = useContext(DataContext);
+  const { post, error } = useContext(DataContext);
   const { url, label, placeholder, todo } = props;
   const [task, setTask] = useState({
     title: "",
@@ -26,7 +26,6 @@ function AddItem(props) {
   return (
     <>
       <InputGroup className="mb-3">
-        {loading && <div>Loading...</div>}
         {error && <MsgAlert msg={error?.message} />}
         <InputGroup.Text>{label || "Label"}</InputGroup.Text>
         <Form.Control
