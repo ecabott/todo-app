@@ -10,10 +10,10 @@ function App() {
       <Container>
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
-            <Title name="TODO App" />
+            <Title name="Todo App" />
             <AddTodo
               label="Add New Task"
-              placeholder="Eg: Do Laundry"
+              placeholder="Eg: Do Homework"
               url={`${API_SERVER}/todos`}
             />
             <Todo />

@@ -25,7 +25,7 @@ function ListTodo(props) {
                     <AddSubtask
                       todo={todo}
                       label="Add new Subtask"
-                      placeholder="Eg: Gather Clothes"
+                      placeholder="Eg: Submit Homework"
                       url={`${API_SERVER}/subtasks`}
                     />
                   </Accordion.Body>
