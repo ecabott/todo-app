@@ -30,7 +30,7 @@ function ListTodo(props) {
                     <AddSubtask
                       todo={todo}
                       label="Add new Subtask"
-                      placeholder="Eg: Submit Homework"
+                      placeholder="New Subtask"
                       url={`${API_SERVER}/subtasks`}
                     />
                     <Button

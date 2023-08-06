@@ -13,7 +13,7 @@ function App() {
             <Title name="Todo App" />
             <AddTodo
               label="Add New Task"
-              placeholder="Eg: Do Homework"
+              placeholder="New Task"
               url={`${API_SERVER}/todos`}
             />
             <Todo />
